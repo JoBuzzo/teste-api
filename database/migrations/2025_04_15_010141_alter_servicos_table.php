@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::table('servicos', function (Blueprint $table) {
             $table->bigIncrements('id')->primary()->change();
-            $table->foreignId('id_transportadora')->change();
+
+            $table->unsignedBigInteger('id_transportadora')->change();
+            $table->foreign('id_transportadora')->references('id')->on('transportadoras');
         });
     }
 

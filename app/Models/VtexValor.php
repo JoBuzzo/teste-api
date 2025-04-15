@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Servico extends Model
+class VtexValor extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'servicos';
+    protected $table = 'vtex_valores';
 
     /**
      * Indicates if the model should be timestamped.
@@ -26,4 +27,14 @@ class Servico extends Model
      * @var array
      */
     protected $guarded = [''];
+
+    /**
+     * Get the servico that owns the VtexValor
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function servico(): BelongsTo
+    {
+        return $this->belongsTo(Servico::class, 'id_servico');
+    }
 }
