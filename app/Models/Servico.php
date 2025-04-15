@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Servico extends Model
 {
@@ -26,4 +27,14 @@ class Servico extends Model
      * @var array
      */
     protected $guarded = [''];
+
+    /**
+     * Get all of the vtxValores for the Servico
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function vtxValores(): HasMany
+    {
+        return $this->hasMany(VtexValor::class, 'id_servico');
+    }
 }

@@ -36,7 +36,7 @@ class Cotacao extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function usuario(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_usuario');
     }
