@@ -11,4 +11,5 @@ Route::get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1'], function () {
     Route::get('/cotacao/frete', [CotacaoDeFreteController::class, 'index']);
+    Route::get('/cotacao/rapida/{id}', [CotacaoDeFreteController::class, 'show']);
 });

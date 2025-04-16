@@ -18,6 +18,13 @@ class Cotacao extends Model
     protected $table = 'cotacao';
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_cotacao';
+
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array

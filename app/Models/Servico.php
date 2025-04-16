@@ -37,4 +37,14 @@ class Servico extends Model
     {
         return $this->hasMany(VtexValor::class, 'id_servico');
     }
+
+    /**
+     * Get all of the cotacoes for the Servico
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cotacoes(): HasMany
+    {
+        return $this->hasMany(Cotacao::class, 'id_servico');
+    }
 }
