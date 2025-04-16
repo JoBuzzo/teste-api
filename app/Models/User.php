@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -14,12 +15,18 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'usuarios';
-
 
     /**
      * Indicates if the model should be timestamped.
@@ -57,5 +64,15 @@ class User extends Authenticatable
     public function cotacoes(): HasMany
     {
         return $this->hasMany(Cotacao::class, 'id_usuario');
+    }
+
+    /**
+     * Get the token associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function token(): HasOne
+    {
+        return $this->hasOne(AccessToken::class, 'id_usuario');
     }
 }
