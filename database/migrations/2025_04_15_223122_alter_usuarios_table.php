@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('usuarios', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary()->change();
+            $table->string('nome')->change();
+            $table->string('login')->unique()->change();
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('usuarios', function (Blueprint $table) {
-
+            //
         });
     }
 };
