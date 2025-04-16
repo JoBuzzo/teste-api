@@ -30,20 +30,6 @@ class AccessToken extends Model
     public $timestamps = false;
 
     /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'access_token';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * Get the usuario that owns the AccessToken
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
