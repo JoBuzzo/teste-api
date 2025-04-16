@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('vtex_valores', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary()->change();
+        Schema::table('cotacao', function (Blueprint $table) {
+            $table->bigIncrements('id_cotacao')->primary()->change();
+
+            $table->unsignedBigInteger('id_usuario')->change();
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
 
             $table->unsignedBigInteger('id_servico')->change();
             $table->foreign('id_servico')->references('id')->on('servicos');
@@ -24,7 +27,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('vtex_valores', function (Blueprint $table) {
+        Schema::table('cotacao', function (Blueprint $table) {
             //
         });
     }
