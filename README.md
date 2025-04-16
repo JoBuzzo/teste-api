@@ -30,7 +30,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-6. Execute as migrations ou use o sql salvo `clubeenvios.sql` na raiz do projeto:
+6. Execute as migrations ou use o sql salvo `clubeenvios.sql` dentro de `clubeenvios.zip` na raiz do projeto:
 
 ```bash
 php artisan migrate
