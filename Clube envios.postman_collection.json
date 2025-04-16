@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "207287c2-4d2c-4d55-976b-3d4f9aae4819",
+		"name": "Clube envios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37182269",
+		"_collection_link": "https://jobuzzo.postman.co/workspace/Team-Workspace~a33b539b-1a0f-4573-8f34-f14b762e88a6/collection/37182269-207287c2-4d2c-4d55-976b-3d4f9aae4819?action=share&source=collection_link&creator=37182269"
+	},
+	"item": [
+		{
+			"name": "Cotação de Frete",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/cotacao/frete?peso_inicial=29001&peso_final=30000&cep_inicio=8071041&cep_final=8072310",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cotacao",
+						"frete"
+					],
+					"query": [
+						{
+							"key": "peso_inicial",
+							"value": "29001"
+						},
+						{
+							"key": "peso_final",
+							"value": "30000"
+						},
+						{
+							"key": "cep_inicio",
+							"value": "8071041"
+						},
+						{
+							"key": "cep_final",
+							"value": "8072310"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cotação Rápida",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/cotacao/rapida/2?page=",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cotacao",
+						"rapida",
+						"2"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "test@example.com",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuário Logado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/usuario",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://teste-api.test/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "bc35ff072f1120bb5211541cc578276d017ce8136619baad387d423d9000",
+			"type": "string"
+		}
+	]
+}

@@ -19,7 +19,13 @@ class AuthAccessToken
     {
         $accessToken = $request->bearerToken();
 
-        $token = AccessToken::where('access_token', $accessToken)->firstOrFail();
+        $token = AccessToken::where('access_token', $accessToken)->first();
+
+        if(!$token) {
+            return response()->json([
+                'message' => 'Token inválido.'
+            ], 401);
+        }
 
         $dtCriacao = Carbon::parse($token->dt_criacao);
 
